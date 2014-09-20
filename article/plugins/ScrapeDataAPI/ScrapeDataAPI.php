@@ -73,7 +73,7 @@ class ScrapeDataAPI extends API {
 		unset($article['voting']);
 		
 		// Pull core data
-		$coreData = Content::scanForCoreData($article['id']);
+		$coreData = Content::scanForCoreData((int) $article['id']);
 		
 		// Add relevant data
 		$article['description'] = $coreData['body'];

@@ -6,6 +6,12 @@ if(Me::initialize())
 	Me::runBehavior($url);
 }
 
+// Custom Loader - load the CONF_PATH controller, if it has a page available for it
+if($url[0] != "" and File::exists(CONF_PATH . "/controller/" . $url[0] . ".php"))
+{
+	require(CONF_PATH . "/controller/" . $url[0] . ".php"); exit;
+}
+
 // Determine which page you should point to, then load it
 require(SYS_PATH . "/routes.php");
 

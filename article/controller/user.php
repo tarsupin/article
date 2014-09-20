@@ -77,6 +77,8 @@ if($myPage)
 // Display the Page
 foreach($entries as $entry)
 {
+	$entry['id'] = (int) $entry['id'];
+	
 	// Retrieve core data about this article (main title, body, image, etc)
 	$coreData = Content::scanForCoreData($entry['id']);
 	
@@ -89,20 +91,6 @@ foreach($entries as $entry)
 	{
 		echo '
 		<div class="cl-img-wrap"><a href="/' . $coreData['url_slug'] . '">' . Photo::responsive($coreData['thumbnail'], "", 950, "", 950, "cl-img") . '</a></div>';
-	}
-	
-	// If we have a small version of the image, use that one
-	else if($coreData['mobile_url'])
-	{
-		echo '
-		<div class="cl-img-wrap"><a href="/' . $coreData['url_slug'] . '">' . Photo::responsive($coreData['mobile_url'], "", 950, "", 950, "cl-img") . '</a></div>';
-	}
-	
-	// If there is an image, show it
-	else if($coreData['image_url'])
-	{
-		echo '
-		<div class="cl-img-wrap"><a href="/' . $coreData['url_slug'] . '">' . Photo::responsive($coreData['image_url'], $coreData['mobile_url'], 950, "", 950, "cl-img") . '</a></div>';
 	}
 	
 	// If this is a draft, there are special links required
