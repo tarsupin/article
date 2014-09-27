@@ -30,17 +30,16 @@ if($myPage)
 			$contentID = ContentForm::createEntry(Me::$id, "Untitled Article", Content::STATUS_DRAFT, 0);
 			
 			// Begin editing the article
-			header("Location: /article-write?content=" . $contentID); exit;
+			header("Location: /write?id=" . $contentID); exit;
 		}
 	}
 }
 
-// Get a list of article entries
-$entries = Content::getByUser($userData['uni_id'], 0, 20, ($myPage ? Content::STATUS_DRAFT : Content::STATUS_PUBLIC), "id, status");
+// Get a list of the user's Content Entries
+$contentIDs = ContentFeed::getUserEntryIDs($userData['uni_id']);
 
-// Include Responsive Script
-Photo::prepareResponsivePage();
-Metadata::addHeader('<link rel="stylesheet" href="' . CDN . '/css/content-block.css" />');
+// Prepare the Content Feed
+ContentFeed::prepare();
 
 /****** Page Configurations ******/
 $config['canonical'] = "/user/" . $userData['handle'];
@@ -62,10 +61,10 @@ echo '
 <div id="panel-right"></div>
 <div id="content">' . Alert::display();
 
-echo '
-<h1>' . $userData['display_name'] . ' - Article</h1>';
+// Display the Feed Header
+ContentFeed::displayHeader($userData['display_name'] . "'s Articles", "Home", "/");
 
-// If the user owns this list, show the option to create a new blog
+// If the user owns this list, show the option to create a new article
 if($myPage)
 {
 	echo '
@@ -74,57 +73,8 @@ if($myPage)
 	</form>';
 }
 
-// Display the Page
-foreach($entries as $entry)
-{
-	$entry['id'] = (int) $entry['id'];
-	
-	// Retrieve core data about this article (main title, body, image, etc)
-	$coreData = Content::scanForCoreData($entry['id']);
-	
-	// Display the Content
-	echo '
-	<div class="content-list">';
-	
-	// If we have a thumbnail version of the image, use that one
-	if($coreData['thumbnail'])
-	{
-		echo '
-		<div class="cl-img-wrap"><a href="/' . $coreData['url_slug'] . '">' . Photo::responsive($coreData['thumbnail'], "", 950, "", 950, "cl-img") . '</a></div>';
-	}
-	
-	// If this is a draft, there are special links required
-	if($entry['status'] == 0)
-	{
-		echo '
-		<div class="cl-title">[DRAFT] <a href="/article-write?content=' . $entry['id'] . '">' . $coreData['title'] . '</a></div>';
-	}
-	else
-	{
-		echo '
-		<div class="cl-title">' . ($entry['status'] == 0 ? '[DRAFT] ' : '') . '<a href="/' . $coreData['url_slug'] . '">' . $coreData['title'] . '</a></div>';
-	}
-	
-	echo '
-		<div class="cl-body">' . $coreData['body'] . '</div>';
-	
-	// If this is the user's page, allow them to have editing links available
-	if($myPage)
-	{
-		echo '
-		<div class="cl-details">
-			<a href="/article-write?content=' . $entry['id'] . '">Edit This Article</a>
-		</div>';
-	}
-	else
-	{
-		echo '
-		<div class="cl-details">Written by <a href="' . URL::unifaction_social() . '/' . $coreData['handle'] . '">' . $coreData['display_name'] . '</a> (<a href="' . URL::fastchat_social() . '/' . $coreData['handle'] . '">@' . $coreData['handle'] . '</a>) - ' . date("F jS, Y", $coreData['date_posted']) . '</div>';
-	}
-	
-	echo '
-	</div>';
-}
+// Display the Feed
+ContentFeed::displayFeed($contentIDs, true, Me::$id);
 
 echo '
 </div>';

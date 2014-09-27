@@ -52,7 +52,7 @@ class AggregateAPI extends API {
 		$packet = array();
 		
 		// Get the list of content entries that haven't been pulled yet
-		$aggList = Database::selectMultiple("SELECT id, uni_id, url_slug, title, primary_hashtag, date_posted FROM content_entries WHERE date_posted > ? AND status >= ? LIMIT 10", array($this->data['aggregate_time'], Content::STATUS_OFFICIAL));
+		$aggList = Database::selectMultiple("SELECT id, uni_id, url_slug, title, primary_hashtag, date_posted FROM content_entries WHERE date_posted > ? AND status >= ? ORDER BY date_posted LIMIT 20", array($this->data['aggregate_time'], Content::STATUS_OFFICIAL));
 		
 		// Cycle through the content entries that match the query and add them to the return packet
 		foreach($aggList as $agg)
@@ -66,9 +66,8 @@ class AggregateAPI extends API {
 			,	"url"				=> SITE_URL . "/" . $agg['url_slug']
 			,	"primary_hashtag"	=> $agg['primary_hashtag']
 			,	"title"				=> $agg['title']
-			,	"blurb"				=> $coreData['body']
-			,	"image_url"			=> $coreData['image_url']
-			,	"mobile_url"		=> $coreData['mobile_url']
+			,	"description"		=> $coreData['body']
+			,	"thumbnail"			=> $coreData['thumbnail']
 			,	"date_posted"		=> (int) $agg['date_posted']
 			);
 		}

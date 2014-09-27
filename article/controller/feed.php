@@ -1,18 +1,28 @@
 <?php if(!defined("CONF_PATH")) { die("No direct script access allowed."); }
 
-// Prepare the Content Feed
+// Get a valid hashtag
+if(!isset($activeHashtag))
+{
+	header("Location: /"); exit;
+}
+
+// Gather the list of articles in this category
+$contentIDs = ContentHashtags::getEntryIDs($activeHashtag);
+
+// Get the hashtag title
+if(!$hashtagTitle = Database::selectValue("SELECT title FROM content_site_hashtags WHERE hashtag=? LIMIT 1", array($activeHashtag)))
+{
+	$hashtagTitle = $activeHashtag;
+}
+
+// Prepare the page for content feeds
 ContentFeed::prepare();
 
-// Retrieve a list of Recent Content Posts
-$contentIDs = ContentFeed::getRecentEntryIDs();
-
-/****** Page Configuration ******/
-$config['canonical'] = "/";
-//$config['pageTitle'] = "UniFaction";		// Up to 70 characters. Use keywords.
-//$config['description'] = "All of your online interests with one login.";	// Overwrites engine: <160 char
+/****** Page Configurations ******/
+$config['canonical'] = "/" . $activeHashtag;
+$config['pageTitle'] = $hashtagTitle . ' - ' . $config['site-name'];
 Metadata::$index = false;
 Metadata::$follow = true;
-// Metadata::openGraph($title, $image, $url, $desc, $type);		// Title = up to 95 chars.
 
 // Run Global Script
 require(CONF_PATH . "/includes/global.php");
@@ -29,7 +39,7 @@ echo '
 <div id="content">' . Alert::display();
 
 // Display the Feed Header
-ContentFeed::displayHeader($config['site-name']);
+ContentFeed::displayHeader($hashtagTitle, $config['site-name'], "/");
 
 // Display the Feed
 ContentFeed::displayFeed($contentIDs, true, Me::$id);
