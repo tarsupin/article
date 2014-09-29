@@ -35,7 +35,7 @@ define("APP_PATH", dirname(CONF_PATH) . "/article");
 Theme::set("default");
 
 // Site-Wide Configurations
-$config['site-name'] = "NFL Articles";
+$config['site-name'] = "National Football League";
 $config['database']['name'] = "article_nfl";
 
 
