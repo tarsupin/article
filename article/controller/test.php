@@ -1,5 +1,7 @@
 <?php if(!defined("CONF_PATH")) { die("No direct script access allowed."); }
 
+exit;
+
 // Search Official Hashtags
 $html = '
 <div class="panel-box">

@@ -1,5 +1,7 @@
 <?php if(!defined("CONF_PATH")) { die("No direct script access allowed."); }
 
+exit;
+
 // Run Global Script
 require(CONF_PATH . "/includes/global.php");
 

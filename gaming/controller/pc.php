@@ -3,8 +3,10 @@
 // Prepare the Content Feed
 ContentFeed::prepare();
 
-// Retrieve a list of Recent Content Posts
-$contentIDs = ContentFeed::getRecentEntryIDs();
+$hashtagList = array("PCGaming");
+
+// Retrieve a list of entries based on the hashtags provied
+$contentIDs = ContentFeed::getEntryIDsByHashtags($hashtagList);
 
 /****** Page Configuration ******/
 $config['canonical'] = "/";
@@ -29,7 +31,7 @@ echo '
 <div id="content">' . Alert::display();
 
 // Display the Feed Header
-ContentFeed::displayHeader($config['site-name'], "UniFaction", URL::unifaction_com());
+ContentFeed::displayHeader("PC Gaming", $config['site-name'], "/");
 
 // Display the Feed
 ContentFeed::displayFeed($contentIDs, true, Me::$id);

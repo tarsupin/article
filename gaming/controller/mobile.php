@@ -3,8 +3,27 @@
 // Prepare the Content Feed
 ContentFeed::prepare();
 
-// Retrieve a list of Recent Content Posts
-$contentIDs = ContentFeed::getRecentEntryIDs();
+$hashtagList = array("MobileGaming");
+
+// Prepare the Search Functionality
+$searchArchetype = "by-mobile";
+
+list($singleFilters, $choiceFilters, $multiFilters) = ModuleSearch::getFilterData($searchArchetype);
+
+// Check if any searches were made
+if(ModuleSearch::search($singleFilters, $choiceFilters, $multiFilters))
+{
+	$contentIDs = ModuleSearch::$contentIDs;
+}
+else
+{
+	// Retrieve a list of entries based on the hashtags provied
+	$contentIDs = ContentFeed::getEntryIDsByHashtags($hashtagList);
+}
+
+// Display Search Widget
+$widgetHTML = ModuleSearch::widget($url_relative, $singleFilters, $choiceFilters, $multiFilters);
+WidgetLoader::add("SidePanel", 12, $widgetHTML);
 
 /****** Page Configuration ******/
 $config['canonical'] = "/";
@@ -29,7 +48,7 @@ echo '
 <div id="content">' . Alert::display();
 
 // Display the Feed Header
-ContentFeed::displayHeader($config['site-name'], "UniFaction", URL::unifaction_com());
+ContentFeed::displayHeader("Consoles", $config['site-name'], "/");
 
 // Display the Feed
 ContentFeed::displayFeed($contentIDs, true, Me::$id);

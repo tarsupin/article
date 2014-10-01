@@ -6,6 +6,9 @@ if(!isset($emptyHashtag))
 	header("Location: /"); exit;
 }
 
+// Prepare the Content Feed
+ContentFeed::prepare();
+
 /****** Page Configurations ******/
 $config['canonical'] = "/" . $emptyHashtag['hashtag'];
 $config['pageTitle'] = $emptyHashtag['title'] . ' - ' . $config['site-name'];
@@ -26,8 +29,13 @@ echo '
 <div id="panel-right"></div>
 <div id="content">' . Alert::display();
 
+// Display the Feed Header
+ContentFeed::displayHeader($emptyHashtag['title'], $config['site-name'], "/");
+
 echo '
-<p>There are no #' . $emptyHashtag['hashtag'] . ' posts available.</p>';
+<p>There are no #' . $emptyHashtag['hashtag'] . ' posts available right now.</p>
+
+<p>If you\'re interested in writing guest posts, you can log in to create them. Your posts may even be posted officially.</p>';
 
 echo '
 </div>';
