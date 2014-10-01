@@ -19,13 +19,13 @@
 
 // Set a Site-Wide Salt between 60 and 68 characters
 // NOTE: Only change this value ONCE after installing a new copy. It will affect all passwords created in the meantime.
-define("SITE_SALT", "s,CPABqS.;U*_M:v63cW9:4.E+yS4de29RqpKmnyk.elRslXGrn638+d-9dS!u@o.ad");
+define("SITE_SALT", "KelJBe18p0ciesTn5hvOWf,UdterLFo,7XH.lAe17A243v#*!Q,5WXX:cV*Ry4NNd0U");
 //					|    5   10   15   20   25   30   35   40   45   50   55   60   65   |
 
 // Set a unique 10 to 22 character keycode (alphanumeric) to prevent code overlap on databases & shared servers
 // For example, you don't want sessions to transfer between multiple sites on a server (e.g. $_SESSION['user'])
 // This key will allow each value to be unique (e.g. $_SESSION['siteCode_user'] vs. $_SESSION['otherSite_user'])
-define("SITE_HANDLE", "article_ohl");
+define("SITE_HANDLE", "article_entertainment");
 
 // Set the Application Path (in most cases, this is the same as CONF_PATH)
 define("APP_PATH", dirname(CONF_PATH) . "/article");
@@ -35,8 +35,8 @@ define("APP_PATH", dirname(CONF_PATH) . "/article");
 Theme::set("default");
 
 // Site-Wide Configurations
-$config['site-name'] = "Ontario Hockey League";
-$config['database']['name'] = "article_ohl";
+$config['site-name'] = "Entertainment";
+$config['database']['name'] = "article_entertainment";
 
 
 /***********************************
@@ -45,11 +45,11 @@ $config['database']['name'] = "article_ohl";
 if(ENVIRONMENT == "production") {
 
 	// Set Important URLs
-	define("SITE_URL", "http://ohl.unifaction.com");
+	define("SITE_URL", "http://entertainment.unifaction.com");
 	define("CDN", "http://cdn.unifaction.com");
 	
 	// Important Configurations
-	$config['site-domain'] = "ohl.unifaction.com";		#production
+	$config['site-domain'] = "entertainment.unifaction.com";		#production
 	$config['admin-email'] = "info@unifaction.com";
 }
 
@@ -59,11 +59,11 @@ if(ENVIRONMENT == "production") {
 else if(ENVIRONMENT == "development") {
 	
 	// Set Important URLs
-	define("SITE_URL", "http://ohl.phptesla.com");
+	define("SITE_URL", "http://entertainment.phptesla.com");
 	define("CDN", "http://cdn.phptesla.com");
 	
 	// Important Configurations
-	$config['site-domain'] = "ohl.phptesla.com";		#development
+	$config['site-domain'] = "entertainment.phptesla.com";		#development
 	$config['admin-email'] = "info@phptesla.com";
 }
 
@@ -73,11 +73,11 @@ else if(ENVIRONMENT == "development") {
 else if(ENVIRONMENT == "local") {
 	
 	// Set Important URLs
-	define("SITE_URL", "http://ohl.test");
+	define("SITE_URL", "http://entertainment.test");
 	define("CDN", "http://cdn.test");
 	
 	// Important Configurations
-	$config['site-domain'] = "ohl.test";
+	$config['site-domain'] = "entertainment.test";
 	$config['admin-email'] = "info@unifaction.test";
 
 }

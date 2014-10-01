@@ -46,7 +46,7 @@ echo '
 <div id="content">' . Alert::display();
 
 // Display the Feed Header
-ContentFeed::displayHeader($config['site-name'], "Basketball", URL::basketball_unifaction_com());
+ContentFeed::displayHeader($config['site-name'], "UniFaction", URL::unifaction_com());
 
 // Display the Feed
 ContentFeed::displayFeed($contentIDs, true, Me::$id);

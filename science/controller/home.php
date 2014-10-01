@@ -1,27 +1,13 @@
 <?php if(!defined("CONF_PATH")) { die("No direct script access allowed."); }
 
+// Run the Aggregation Updates
+AppAggregate::update("basketball");
+
 // Prepare the Content Feed
 ContentFeed::prepare();
 
-// Prepare the Search Functionality
-$searchArchetype = "search-home";
-
-list($singleFilters, $choiceFilters, $multiFilters) = ModuleSearch::getFilterData($searchArchetype);
-
-// Check if any searches were made
-if(ModuleSearch::search($singleFilters, $choiceFilters, $multiFilters))
-{
-	$contentIDs = ModuleSearch::$contentIDs;
-}
-else
-{
-	// Retrieve a list of Recent Content Posts
-	$contentIDs = ContentFeed::getRecentEntryIDs();
-}
-
-// Display Search Widget
-$widgetHTML = ModuleSearch::widget($url_relative, $singleFilters, $choiceFilters, $multiFilters);
-WidgetLoader::add("SidePanel", 12, $widgetHTML);
+// Retrieve a list of Recent Content Posts
+$contentIDs = ContentFeed::getRecentEntryIDs();
 
 /****** Page Configuration ******/
 $config['canonical'] = "/";
@@ -46,7 +32,7 @@ echo '
 <div id="content">' . Alert::display();
 
 // Display the Feed Header
-ContentFeed::displayHeader($config['site-name'], "Basketball", URL::basketball_unifaction_com());
+ContentFeed::displayHeader($config['site-name'], "UniFaction", URL::unifaction_com());
 
 // Display the Feed
 ContentFeed::displayFeed($contentIDs, true, Me::$id);
