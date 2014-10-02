@@ -6,6 +6,9 @@ if(!isset($activeHashtag))
 	header("Location: /"); exit;
 }
 
+// Prepare Values
+ContentFeed::$backTagTitle = $config['site-name'];
+
 // Gather the list of articles in this category
 $contentIDs = ContentHashtags::getEntryIDs($activeHashtag);
 
@@ -39,7 +42,7 @@ echo '
 <div id="content">' . Alert::display();
 
 // Display the Feed Header
-ContentFeed::displayHeader($hashtagTitle, $config['site-name'], "/");
+ContentFeed::displayHeader($hashtagTitle, ContentFeed::$backTagTitle, ContentFeed::$backTagURL);
 
 // Display the Feed
 ContentFeed::displayFeed($contentIDs, true, Me::$id);

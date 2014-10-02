@@ -1,8 +1,5 @@
 <?php if(!defined("CONF_PATH")) { die("No direct script access allowed."); }
 
-// Run the Aggregation Updates
-AppAggregate::update("basketball");
-
 // Prepare the Content Feed
 ContentFeed::prepare();
 

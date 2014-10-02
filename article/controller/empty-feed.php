@@ -6,6 +6,9 @@ if(!isset($emptyHashtag))
 	header("Location: /"); exit;
 }
 
+// Prepare Values
+ContentFeed::$backTagTitle = $config['site-name'];
+
 // Prepare the Content Feed
 ContentFeed::prepare();
 
@@ -30,7 +33,7 @@ echo '
 <div id="content">' . Alert::display();
 
 // Display the Feed Header
-ContentFeed::displayHeader($emptyHashtag['title'], $config['site-name'], "/");
+ContentFeed::displayHeader($emptyHashtag['title'], ContentFeed::$backTagTitle, ContentFeed::$backTagURL);
 
 echo '
 <p>There are no #' . $emptyHashtag['hashtag'] . ' posts available right now.</p>
