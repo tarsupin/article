@@ -3,25 +3,8 @@
 // Prepare the Content Feed
 ContentFeed::prepare();
 
-// Prepare the Search Functionality
-$searchArchetype = "search-home";
-
-list($singleFilters, $choiceFilters, $multiFilters) = ModuleSearch::getFilterData($searchArchetype);
-
-// Check if any searches were made
-if(ModuleSearch::search($singleFilters, $choiceFilters, $multiFilters))
-{
-	$contentIDs = ModuleSearch::$contentIDs;
-}
-else
-{
-	// Retrieve a list of Recent Content Posts
-	$contentIDs = ContentFeed::getRecentEntryIDs();
-}
-
-// Display Search Widget
-$widgetHTML = ModuleSearch::widget($url_relative, $singleFilters, $choiceFilters, $multiFilters);
-WidgetLoader::add("SidePanel", 12, $widgetHTML);
+// Retrieve a list of Recent Content Posts
+$contentIDs = ContentFeed::getRecentEntryIDs();
 
 /****** Page Configuration ******/
 $config['canonical'] = "/";

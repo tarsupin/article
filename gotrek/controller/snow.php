@@ -5,25 +5,8 @@ ContentFeed::prepare();
 
 $hashtagList = array("Freeskiing", "IceClimbing", "IceCanoeing", "Snowboarding", "Snowmobiling", "Snowshoeing", "Snowskating", "Skiing");
 
-// Prepare the Search Functionality
-$searchArchetype = "snow-sports";
-
-list($singleFilters, $choiceFilters, $multiFilters) = ModuleSearch::getFilterData($searchArchetype);
-
-// Check if any searches were made
-if(ModuleSearch::search($singleFilters, $choiceFilters, $multiFilters))
-{
-	$contentIDs = ModuleSearch::$contentIDs;
-}
-else
-{
-	// Retrieve a list of entries based on the hashtags provied
-	$contentIDs = ContentFeed::getEntryIDsByHashtags($hashtagList);
-}
-
-// Display Search Widget
-$widgetHTML = ModuleSearch::widget($url_relative, $singleFilters, $choiceFilters, $multiFilters);
-WidgetLoader::add("SidePanel", 12, $widgetHTML);
+// Retrieve a list of entries based on the hashtags provided
+$contentIDs = ContentFeed::getEntryIDsByHashtags($hashtagList);
 
 /****** Page Configuration ******/
 $config['canonical'] = "/";
