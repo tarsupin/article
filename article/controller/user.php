@@ -62,7 +62,7 @@ echo '
 <div id="content">' . Alert::display();
 
 // Display the Feed Header
-ContentFeed::displayHeader($userData['display_name'] . "'s Articles", "Home", "/");
+ContentFeed::displayHeader($userData['display_name'] . "'s Articles", $config['site-name'], "/");
 
 // If the user owns this list, show the option to create a new article
 if($myPage)

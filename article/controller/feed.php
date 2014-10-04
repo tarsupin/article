@@ -8,6 +8,8 @@ if(!isset($activeHashtag))
 
 // Prepare Values
 ContentFeed::$backTagTitle = $config['site-name'];
+ContentFeed::$activeHashtag = $activeHashtag;
+Feed::$returnURL = "/" . $activeHashtag;
 
 // Gather the list of articles in this category
 $contentIDs = ContentHashtags::getEntryIDs($activeHashtag);

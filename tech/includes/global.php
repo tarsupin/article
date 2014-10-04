@@ -10,16 +10,21 @@ $html = '
 		<li class="nav-slot' . ($url[0] == "Hardware" ? " nav-active" : "") . '"><a href="/Hardware">Hardware<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot' . ($url[0] == "Software" ? " nav-active" : "") . '"><a href="/Software">Software<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot' . ($url[0] == "Mobile" ? " nav-active" : "") . '"><a href="/Mobile">Mobile<span class="icon-circle-right nav-arrow"></span></a></li>
-		<li class="nav-slot' . ($url[0] == "RetroTech" ? " nav-active" : "") . '"><a href="/RetroTech">Retro Tech<span class="icon-circle-right nav-arrow"></span></a></li>';
-		
-		if(Me::$loggedIn)
-		{
-			$html .= '
-			<li class="nav-slot' . (($url[0] == "user" and isset($url[1]) and $url[1] == Me::$vals['handle']) ? " nav-active" : "") . '"><a href="/user/' . Me::$vals['handle'] . '">My Articles<span class="icon-circle-right nav-arrow"></span></a></li>';
-		}
-		
-		$html .= '
+		<li class="nav-slot' . ($url[0] == "RetroTech" ? " nav-active" : "") . '"><a href="/RetroTech">Retro Tech<span class="icon-circle-right nav-arrow"></span></a></li>
 	</ul>
 </div>';
 
 WidgetLoader::add("SidePanel", 10, $html);
+
+// Show Logged In Options
+if(Me::$loggedIn)
+{
+	$html = '
+	<div class="panel-box" style="min-height:10px;">
+		<ul class="panel-notes" style="margin-top:10px;">
+			<li class="nav-note"><a href="/user/' . Me::$vals['handle'] . '">My Articles</a></li>
+		</ul>
+	</div>';
+	
+	WidgetLoader::add("SidePanel", 11, $html);
+}

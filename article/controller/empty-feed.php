@@ -8,6 +8,8 @@ if(!isset($emptyHashtag))
 
 // Prepare Values
 ContentFeed::$backTagTitle = $config['site-name'];
+ContentFeed::$activeHashtag = $emptyHashtag['hashtag'];
+Feed::$returnURL = "/" . $emptyHashtag['hashtag'];
 
 // Prepare the Content Feed
 ContentFeed::prepare();
