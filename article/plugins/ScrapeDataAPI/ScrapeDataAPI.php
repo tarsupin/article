@@ -80,6 +80,10 @@ class ScrapeDataAPI extends API {
 		$article['image_url'] = $coreData['image_url'];
 		$article['mobile_url'] = $coreData['mobile_url'];
 		$article['site_handle'] = SITE_HANDLE;
+		$article['url'] = ($article['url'] == "" ? SITE_URL : $article['url']);
+		
+		// Get Hashtags
+		$article['hashtag_list'] = ModuleHashtags::get((int) $article['id']);
 		
 		// Return article data
 		return $article;
