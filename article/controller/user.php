@@ -69,7 +69,7 @@ if($myPage)
 {
 	echo '
 	<form class="uniform" action="/user/' . $userData['handle'] . '" method="post">' . Form::prepare(SITE_HANDLE . "-article-gen") . '
-		<p><input type="submit" name="submit" value="Create New Article" tabindex="30" /></p>
+		<p><input type="submit" name="submit" value="Create New Article" tabindex="30" /> <a class="button" href="/author-about">Edit "About the Author"</a></p>
 	</form>';
 }
 

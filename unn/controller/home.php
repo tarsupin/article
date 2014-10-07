@@ -1,10 +1,17 @@
 <?php if(!defined("CONF_PATH")) { die("No direct script access allowed."); }
 
-// Prepare the Content Feed
-ContentFeed::prepare();
+$activeHashtag = "World";
 
-// Retrieve a list of Recent Content Posts
-$contentIDs = ContentFeed::getRecentEntryIDs();
+// Prepare Values
+ContentFeed::$backTagTitle = $config['site-name'];
+ContentFeed::$activeHashtag = $activeHashtag;
+Feed::$returnURL = "/" . $activeHashtag;
+
+// Gather the list of articles in this category
+$contentIDs = ContentHashtags::getEntryIDs($activeHashtag);
+
+// Prepare the page for content feeds
+ContentFeed::prepare();
 
 /****** Page Configuration ******/
 $config['canonical'] = "/";
