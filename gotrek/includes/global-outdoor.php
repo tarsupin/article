@@ -11,7 +11,7 @@ $html = '
 		<li class="nav-slot"><a href="/Running">Running<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/Climbing">Climbing<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/Fishing">Fishing<span class="icon-circle-right nav-arrow"></span></a></li>
-		<li class="nav-slot"><a href="/Trail Running">Trail Running<span class="icon-circle-right nav-arrow"></span></a></li>
+		<li class="nav-slot"><a href="/TrailRunning">Trail Running<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/Trapping">Trapping<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/Caving">Caving<span class="icon-circle-right nav-arrow"></span></a></li>
 	</ul>
