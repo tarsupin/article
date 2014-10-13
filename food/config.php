@@ -25,18 +25,14 @@ define("SITE_SALT", "ZWswmvdX23|JP3Di|1L~J1+MO5DmxcJ-g3j+!ly2zYEHksEUvUekP|C@LEM
 // Set a unique 10 to 22 character keycode (alphanumeric) to prevent code overlap on databases & shared servers
 // For example, you don't want sessions to transfer between multiple sites on a server (e.g. $_SESSION['user'])
 // This key will allow each value to be unique (e.g. $_SESSION['siteCode_user'] vs. $_SESSION['otherSite_user'])
-define("SITE_HANDLE", "article_recipes");
+define("SITE_HANDLE", "article_food");
 
 // Set the Application Path (in most cases, this is the same as CONF_PATH)
 define("APP_PATH", dirname(CONF_PATH) . "/article");
 
-
-// Prepare Default Theme
-Theme::set("default");
-
 // Site-Wide Configurations
-$config['site-name'] = "Recipes";
-$config['database']['name'] = "article_recipes";
+$config['site-name'] = "Food and Recipes";
+$config['database']['name'] = "article_food";
 
 
 /***********************************
@@ -45,11 +41,11 @@ $config['database']['name'] = "article_recipes";
 if(ENVIRONMENT == "production") {
 
 	// Set Important URLs
-	define("SITE_URL", "http://recipes.unifaction.com");
+	define("SITE_URL", "http://food.unifaction.com");
 	define("CDN", "http://cdn.unifaction.com");
 	
 	// Important Configurations
-	$config['site-domain'] = "recipes.unifaction.com";		#production
+	$config['site-domain'] = "food.unifaction.com";		#production
 	$config['admin-email'] = "info@unifaction.com";
 }
 
@@ -59,11 +55,11 @@ if(ENVIRONMENT == "production") {
 else if(ENVIRONMENT == "development") {
 	
 	// Set Important URLs
-	define("SITE_URL", "http://recipes.phptesla.com");
+	define("SITE_URL", "http://food.phptesla.com");
 	define("CDN", "http://cdn.phptesla.com");
 	
 	// Important Configurations
-	$config['site-domain'] = "recipes.phptesla.com";		#development
+	$config['site-domain'] = "food.phptesla.com";		#development
 	$config['admin-email'] = "info@phptesla.com";
 }
 
@@ -73,11 +69,11 @@ else if(ENVIRONMENT == "development") {
 else if(ENVIRONMENT == "local") {
 	
 	// Set Important URLs
-	define("SITE_URL", "http://recipes.test");
+	define("SITE_URL", "http://food.test");
 	define("CDN", "http://cdn.test");
 	
 	// Important Configurations
-	$config['site-domain'] = "recipes.test";
+	$config['site-domain'] = "food.test";
 	$config['admin-email'] = "info@unifaction.test";
 
 }
