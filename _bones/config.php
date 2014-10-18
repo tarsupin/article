@@ -30,10 +30,6 @@ define("SITE_HANDLE", "article_STRUCTURE");
 // Set the Application Path (in most cases, this is the same as CONF_PATH)
 define("APP_PATH", dirname(CONF_PATH) . "/article");
 
-
-// Prepare Default Theme
-Theme::set("default");
-
 // Site-Wide Configurations
 $config['site-name'] = "STRUCTURE Articles";
 $config['database']['name'] = "article_STRUCTURE";

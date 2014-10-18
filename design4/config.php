@@ -30,10 +30,6 @@ define("SITE_HANDLE", "article_design4");
 // Set the Application Path (in most cases, this is the same as CONF_PATH)
 define("APP_PATH", dirname(CONF_PATH) . "/article");
 
-
-// Prepare Default Theme
-Theme::set("default");
-
 // Site-Wide Configurations
 $config['site-name'] = "Design4";
 $config['database']['name'] = "article_design4";
