@@ -4,6 +4,7 @@
 $html = '
 <div class="panel-box">
 	<ul class="panel-slots">
+		<li class="nav-slot nav-back"><a href="' . ContentFeed::$backTagURL . Me::$slg . '">' . ContentFeed::$backTagTitle . '<span class="icon-arrow-left nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/AwardWinningBooks">Award Winning<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/BestsellingBooks">Bestselling<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/BiographyBooks">Biographies<span class="icon-circle-right nav-arrow"></span></a></li>

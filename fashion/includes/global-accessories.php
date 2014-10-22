@@ -8,6 +8,7 @@ ContentFeed::$backTagURL = "/";
 $html = '
 <div class="panel-box">
 	<ul class="panel-slots">
+		<li class="nav-slot nav-back"><a href="' . URL::fashion_unifaction_com() . Me::$slg . '">Fashion<span class="icon-arrow-left nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/AccessoryDesigners">Designers<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/Bags">Bags<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/Belts">Belts<span class="icon-circle-right nav-arrow"></span></a></li>

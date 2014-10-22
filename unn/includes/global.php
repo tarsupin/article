@@ -4,6 +4,7 @@
 $html = '
 <div class="panel-box">
 	<ul class="panel-slots">
+		<li class="nav-slot nav-back"><a href="' . URL::unifaction_com() . Me::$slg . '">UniFaction<span class="icon-arrow-left nav-arrow"></span></a></li>
 		<li class="nav-slot' . (in_array($url[0], array("", "home")) ? " nav-active" : "") . '"><a href="/">World News<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot' . ($url[0] == "USA" ? " nav-active" : "") . '"><a href="/USA">US News<span class="icon-circle-right nav-arrow"></span></a></li>
 	</ul>

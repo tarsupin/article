@@ -4,6 +4,7 @@
 $html = '
 <div class="panel-box">
 	<ul class="panel-slots">
+		<li class="nav-slot nav-back"><a href="' . URL::gotrek_today() . Me::$slg . '">GoTrek<span class="icon-arrow-left nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/Boating">Boating<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/Canoeing">Canoeing<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/Freediving">Freediving<span class="icon-circle-right nav-arrow"></span></a></li>

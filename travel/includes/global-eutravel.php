@@ -8,6 +8,7 @@ ContentFeed::$backTagURL = "/";
 $html = '
 <div class="panel-box">
 	<ul class="panel-slots">
+		<li class="nav-slot nav-back"><a href="' . ContentFeed::$backTagURL . Me::$slg . '">' . ContentFeed::$backTagTitle . '<span class="icon-arrow-left nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/WestEUTravel">West Europe<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/EastEUTravel">East Europe<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/ScandanavianTravel">Scandinavia<span class="icon-circle-right nav-arrow"></span></a></li>

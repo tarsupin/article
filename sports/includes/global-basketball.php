@@ -4,6 +4,7 @@
 $html = '
 <div class="panel-box">
 	<ul class="panel-slots">
+		<li class="nav-slot nav-back"><a href="' . URL::sports_unifaction_com() . Me::$slg . '">Sports<span class="icon-arrow-left nav-arrow"></span></a></li>
 		<li class="nav-slot' . ($url[0] == "NBA" ? " nav-active" : "") . '"><a href="/NBA">NBA<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot' . ($url[0] == "NCAAM" ? " nav-active" : "") . '"><a href="/NCAAM">NCAAM<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot' . ($url[0] == "WNBA" ? " nav-active" : "") . '"><a href="/WNBA">WNBA<span class="icon-circle-right nav-arrow"></span></a></li>

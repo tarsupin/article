@@ -3,10 +3,8 @@
 // Main Navigation
 $html = '
 <div class="panel-box">
-	<ul class="panel-slots">';
-
-// Add Time-Sensitive Recipes
-$html .= '
+	<ul class="panel-slots">
+		<li class="nav-slot nav-back"><a href="' . URL::unifaction_com() . Me::$slg . '">UniFaction<span class="icon-arrow-left nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/PopularRecipes">Popular<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/by-diet">By Diet<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/by-course">By Course<span class="icon-circle-right nav-arrow"></span></a></li>

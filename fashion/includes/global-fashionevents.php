@@ -8,6 +8,7 @@ ContentFeed::$backTagURL = "/FashionNews";
 $html = '
 <div class="panel-box">
 	<ul class="panel-slots">
+		<li class="nav-slot nav-back"><a href="' . ContentFeed::$backTagURL . Me::$slg . '">' . ContentFeed::$backTagTitle . '<span class="icon-arrow-left nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/BerlinFashionWeek">Berlin Fashion Week<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/BonnarooFashion">Bonnaroo Fashion<span class="icon-circle-right nav-arrow"></span></a></li>
 		<li class="nav-slot"><a href="/CoachellaFashion">Coachella Fashion<span class="icon-circle-right nav-arrow"></span></a></li>
