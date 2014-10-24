@@ -15,6 +15,24 @@ $config['pageTitle'] = Content::$contentData['title'];
 Metadata::$index = true;
 Metadata::$follow = true;
 
+// Main Navigation
+$html = '
+<div class="panel-box">
+	<ul class="panel-slots">';
+		
+	if(Content::$contentData['primary_hashtag'])
+	{
+		$html .= '
+		<li class="nav-slot nav-back"><a href="/' . Content::$contentData['primary_hashtag'] . '">#' . Content::$contentData['primary_hashtag'] . '<span class="icon-arrow-left nav-arrow"></span></a></li>';
+	}
+	
+	$html .= '
+		<li class="nav-slot nav-back"><a href="/">' . $config['site-name'] . '<span class="icon-arrow-left nav-arrow"></span></a></li>
+	</ul>
+</div>';
+
+WidgetLoader::add("SidePanel", 10, $html);
+
 // Run Global Script
 require(CONF_PATH . "/includes/global.php");
 

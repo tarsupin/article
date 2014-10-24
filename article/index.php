@@ -1,10 +1,7 @@
 <?php if(!defined("CONF_PATH")) { die("No direct script access allowed."); }
 
-// Initialize and Test Active User's Behavior
-if(Me::initialize())
-{
-	Me::runBehavior($url);
-}
+// Initialize Active User
+Me::initialize();
 
 $urlActive = $url[0] ? $url[0] : 'home';
 
