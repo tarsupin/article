@@ -20,6 +20,9 @@ $config['pageTitle'] = $emptyHashtag['title'] . ' - ' . $config['site-name'];
 Metadata::$index = false;
 Metadata::$follow = false;
 
+// Prepare Official Hashtag
+$config['active-hashtag'] = $emptyHashtag['hashtag'];
+
 // Run Global Script
 require(CONF_PATH . "/includes/global.php");
 

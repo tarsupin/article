@@ -33,6 +33,9 @@ $html = '
 
 WidgetLoader::add("SidePanel", 10, $html);
 
+// Prepare Official Hashtag
+$config['active-hashtag'] = Content::$contentData['primary_hashtag'];
+
 // Run Global Script
 require(CONF_PATH . "/includes/global.php");
 

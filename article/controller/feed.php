@@ -29,6 +29,9 @@ $config['pageTitle'] = $hashtagTitle . ' - ' . $config['site-name'];
 Metadata::$index = false;
 Metadata::$follow = true;
 
+// Prepare Official Hashtag
+$config['active-hashtag'] = $activeHashtag;
+
 // Run Global Script
 require(CONF_PATH . "/includes/global.php");
 
