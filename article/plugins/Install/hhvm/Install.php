@@ -13,6 +13,7 @@ abstract class Install extends Installation {
 	,	"ContentComments"	=> true
 	,	"ContentForm"		=> true
 	,	"ContentTrack"		=> true
+	,	"FeaturedWidget"	=> true
 	,	"Feed"				=> true
 	,	"ModuleAuthor"		=> true
 	,	"ModuleHashtags"	=> true
