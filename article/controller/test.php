@@ -13,10 +13,6 @@ $html = '
 
 WidgetLoader::add("SidePanel", 10, $html);
 
-// Add the auto-scroll functionality
-Metadata::addHeader('
-	<script src="' . URL::cdn_unifaction_com() . '/scripts/autoscroll.js"></script>');
-
 // Run Global Script
 require(CONF_PATH . "/includes/global.php");
 
