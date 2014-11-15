@@ -36,6 +36,10 @@ WidgetLoader::add("SidePanel", 10, $html);
 // Prepare Official Hashtag
 $config['active-hashtag'] = Content::$contentData['primary_hashtag'];
 
+// Set the active user
+You::$id = Content::$contentData['uni_id'];
+You::$handle = Content::$contentData['handle'];
+
 // Run Global Script
 require(CONF_PATH . "/includes/global.php");
 
