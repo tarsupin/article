@@ -7,4 +7,9 @@ if(isset($_POST['activeHashtag']) and $_POST['activeHashtag'])
 	echo $chatWidget->get();
 }
 
+// Dynamic Content Loader
+echo '
+<!-- Content gets dynamically shifted to this section -->
+<div id="dynamic-content-loader"></div>';
+
 require_once(CONF_PATH . '/includes/widget-panel.php');
