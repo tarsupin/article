@@ -76,7 +76,7 @@ class ScrapeDataAPI extends API {
 		$coreData = Content::scanForCoreData((int) $article['id']);
 		
 		// Add relevant data
-		$article['description'] = $coreData['body'];
+		$article['description'] = $coreData['description'];
 		$article['image_url'] = $coreData['image_url'];
 		$article['mobile_url'] = $coreData['mobile_url'];
 		$article['site_handle'] = SITE_HANDLE;
